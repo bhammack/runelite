@@ -1,4 +1,4 @@
-FROM linuxserver/webtop:alpine-i3 	
+FROM ghcr.io/linuxserver/webtop:alpine-openbox
 
 RUN \
  echo "**** install packages ****" && \
