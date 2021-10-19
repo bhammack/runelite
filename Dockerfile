@@ -11,4 +11,4 @@ RUN \
 WORKDIR /root/
 RUN wget https://github.com/runelite/launcher/releases/download/2.2.0/RuneLite.jar
 
-CMD java -jar RuneLite.jar --mode=OFF
+CMD java -jar RuneLite.jar --mode=OFF && sleep infinity
