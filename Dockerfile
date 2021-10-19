@@ -1,19 +1,14 @@
-FROM ghcr.io/linuxserver/webtop:alpine-openbox
+FROM alpine
 
 RUN \
  echo "**** install packages ****" && \
  apk add --no-cache \
-    openjdk11 && \
+    openjdk11-jre && \
  echo "**** cleanup ****" && \
  rm -rf \
     /tmp/*
 
-RUN wget -P /usr/local/bin https://github.com/runelite/launcher/releases/download/2.1.5/RuneLite.jar
-RUN chmod 777 /usr/local/bin/RuneLite.jar
+WORKDIR /root/
+RUN wget https://github.com/runelite/launcher/releases/download/2.2.0/RuneLite.jar
 
-# add local files
-COPY /root /
-
-# ports and volumes
-EXPOSE 3000
-VOLUME /config
+CMD java -jar RuneLite.jar --mode=OFF
